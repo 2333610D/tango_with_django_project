@@ -13,6 +13,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from datetime import datetime
 
+
 def add_category(request):
     form = CategoryForm()
     if request.method == 'POST':
@@ -197,7 +198,11 @@ def user_login(request):
 
 @login_required
 def restricted(request):
-    return HttpResponse("Since you're logged in, you can see this text")
+    return render(request, 'rango/restricted.html', {})
+    
+    #return HttpResponse("Since you're logged in, you can see this text")
+
+
 
 
 # Use the login_required() decorator to ensure only those logged in can
